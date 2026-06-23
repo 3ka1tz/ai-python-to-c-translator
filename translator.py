@@ -15,15 +15,51 @@ def generate_cython_and_compile(input_path):
     print(f"🤖 [1/3] Optimizing code for Cython using qwen2.5-coder:7b...")
     
     system_prompt = (
-        "You are an expert Cython developer. Optimize the provided Python code by "
-        "converting it into valid Cython (.pyx). Add static C types (cdef, cpdef, int, double) "
-        "to loops and intensive variables. Keep Python library imports intact. "
-        "Return ONLY the raw Cython code inside a markdown code block without explanations."
+        "You are an expert Cython performance engineer. Your mission is to optimize the provided "
+        "Python code into valid, ultra-fast Cython (.pyx). Use the official documentation reference "
+        "below as your strict syntax guide.\n\n"
+        
+        "========================================================================\n"
+        "📖 OFFICIAL CYTHON DOCUMENTATION REFERENCE & TEMPLATES\n"
+        "========================================================================\n"
+        "1. BASIC VARIABLE DECLARATION:\n"
+        "   Variables must be declared at the top of the function or block using 'cdef'.\n"
+        "   [Valid Template]:\n"
+        "       def process_data(long long limit):\n"
+        "           cdef long long total = 0\n"
+        "           cdef int i\n"
+        "           for i in range(limit):\n"
+        "               total += i\n"
+        "           return total\n\n"
+        
+        "2. HIGH-PERFORMANCE STRING & BYTES PROCESSING:\n"
+        "   Never use raw C pointers (char*) or malloc unless explicitly importing libc. "
+        "   The official and safest way to process characters at C-speed is indexing a 'bytes' or 'bytearray' object.\n"
+        "   [Valid Template]:\n"
+        "       def transform_text(bytes text_bytes, int key):\n"
+        "           cdef bytearray result = bytearray(text_bytes)\n"
+        "           cdef int length = len(result)\n"
+        "           cdef int i\n"
+        "           cdef int char_val\n"
+        "           for i in range(length):\n"
+        "               char_val = result[i]\n"
+        "               if (char_val >= 65) and (char_val <= 90):\n"
+        "                   result[i] = (char_val - 65 + key) % 26 + 65\n"
+        "           return bytes(result)\n\n"
+        
+        "3. RULES AGAINST COMMON SYNTAX HALUCINATIONS:\n"
+        "   - CRITICAL: Never write 'except?' or 'except -1' on standard 'def' functions.\n"
+        "   - CRITICAL: Never use raw C declarations inside loops like 'char c = text[i]' or 'int x = 0'.\n"
+        "   - CRITICAL: Never assign values to keywords like 'None', 'True', 'False' or 'NULL' (e.g., 'None = x' is strictly forbidden).\n"
+        "========================================================================\n\n"
+        
+        "Task: Translate the user's Python code following the exact code styles shown in the templates above.\n"
+        "Return ONLY the raw Cython code inside a markdown code block without any explanations or introductory text."
     )
 
     try:
         response = ollama.chat(
-            model='deepseek-coder:6.7b',  # <- ¡Unificado aquí!
+            model='qwen2.5-coder:7b',  # <- ¡Unificado aquí!
             messages=[
                 {'role': 'system', 'content': system_prompt},
                 {'role': 'user', 'content': python_code}
