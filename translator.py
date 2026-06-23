@@ -21,7 +21,7 @@ def generate_cython(input_path):
 
     try:
         response = ollama.chat(
-            model='qwen2.5-coder:1.5b',
+            model='deepseek-coder:6.7b',
             messages=[
                 {'role': 'system', 'content': system_prompt},
                 {'role': 'user', 'content': python_code}
