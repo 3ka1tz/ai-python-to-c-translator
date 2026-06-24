@@ -1,4 +1,10 @@
+# Virtual environment
 .venv/
 venv/
+
+# Files generated during compilation
+*.so
+build/
+
+# Cache
 __pycache__/
-build
