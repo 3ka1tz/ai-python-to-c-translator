@@ -1,4 +1,4 @@
-# AI Python to C Translator
+# AI Python-to-C Translator
 
 *This project has been created by [3ka1tz](https://github.com/3ka1tz).*
 
