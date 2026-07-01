@@ -4,13 +4,13 @@
 
 ## Description
 
-The aim of this project is to take advantage of the well known benefits of C language without sacrifizing the convenience of Python programming. With that objective in mind this repo consists of an AI based Python to C leak-free translator. Nowadays with the increase in use of Python companies are lossing in efficiency and speed.
+This project aims to leverage the well-known performance benefits of the C language without sacrificing the ease and convenience of Python programming. To achieve this, we developed an AI-powered, leak-free Python-to-C translator.
 
-These topics are starting to be more and more important and there is an amazing scientific study about it. One of the most complex efficiency comparison studies is one made by some students of the Universidade do Minho in Portugal. In this image you can see the different energy, speed and memory efficiency across some of the most popular programming languages:
+As Python's popularity continues to grow, many organizations face trade-offs in execution speed and computational efficiency. The relevance of this trade-off is highlighted in a comprehensive study by researchers at the Universidade do Minho in Portugal, which evaluates energy, speed, and memory efficiency across popular programming languages:
 
 ![Efficiency comparison table](efficiency-comparison.png)
 
-As you can see the difference between C and Python is huge, with C been the top tier option. That is why projects like this are so important to reduce monetary costs and environmental emissions.
+As the data demonstrates, the efficiency gap between C and Python is substantial, with C consistently ranking as the top-tier option. This project bridges that gap, helping organizations reduce operational costs and minimize environmental emissions.
 
 ## Instructions
 
