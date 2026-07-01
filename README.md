@@ -4,7 +4,7 @@
 
 ## Description
 
-This project aims to leverage the well-known performance benefits of the C language without sacrificing the ease and convenience of Python programming. To achieve this, we developed an AI-powered, leak-free Python-to-C translator.
+This project aims to leverage the well-known performance benefits of the C language without sacrificing the ease and convenience of Python programming. To achieve this, I am developing an AI-powered, leak-free Python-to-C translator.
 
 As Python's popularity continues to grow, many organizations face trade-offs in execution speed and computational efficiency. The relevance of this trade-off is highlighted in a comprehensive study by researchers at the Universidade do Minho in Portugal, which evaluates energy, speed, and memory efficiency across popular programming languages:
 
